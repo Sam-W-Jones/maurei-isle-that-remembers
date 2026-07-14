@@ -1,0 +1,36 @@
+{
+  "maps": {
+    "maurei-overview-gm.webp": "mysterious_island_ruins_and_winding_paths.png",
+    "maurei-overview-player.webp": "misty_tropical_island_with_ancient_ruins.png",
+    "open-water-approach.webp": "moody_seascape_with_reef_and_buoy.png",
+    "reef-and-pale-strand.webp": "stormy_coastal_wreckage_and_reefs.png",
+    "whisperwood.webp": "enchanted_mist_filled_forest_with_ruins.png",
+    "tended-grave.webp": "misty_forest_altar_in_twilight.png",
+    "hunt-echo-clearing.webp": "ancient_ritual_clearing_in_foggy_forest.png",
+    "pale-court-gm.webp": "the_pale_court_exploration_map.png",
+    "pale-court-player.webp": "ruined_temple_in_a_forest.png",
+    "hall-of-faces.webp": "gothic_flooded_gallery_of_decay.png",
+    "ballroom.webp": "ruined_ballroom_with_flooded_floors.png"
+  },
+  "tokens": {
+    "ships/ship-intact.png": "polynesian_sailing_vessel_top_down_view.png",
+    "ships/ship-damaged.png": "ruined_pirate_galleon_interior_view.png",
+    "ships/launch-empty.png": "wooden_rowboat_top_down_illustration.png",
+    "ships/launch-supplied.png": "wooden_rowboat_with_supplies_and_oars.png",
+    "hauiri/hauiri-standing.png": "ethereal_fox_in_muted_mist.png",
+    "hauiri/hauiri-seated.png": "ethereal_fox_spirit_in_mist.png",
+    "hauiri/hauiri-walking.png": "ethereal_fox_spirit_in_motion.png",
+    "saltwyrm/saltwyrm-full.png": "sea_serpent_with_coral_growths.png",
+    "saltwyrm/saltwyrm-head.png": "sea_serpent_head_with_coral_accretions.png",
+    "saltwyrm/saltwyrm-submerged.png": "ghostly_aquatic_dragon_silhouette.png",
+    "saltwyrm/saltwyrm-coil.png": "serpentine_sea_creature_with_coral_growth.png",
+    "sentinels/courts-sword.png": "ethereal_knight_with_glowing_sword.png",
+    "sentinels/courts-sword-dissolving.png": "dissolving_knight_in_ethereal_fragments.png",
+    "sentinels/huntsman.png": "spectral_knight_with_sword_and_horn.png",
+    "sentinels/pale-sentinel-shield.png": "ethereal_knight_with_sword_and_shield.png",
+    "sentinels/pale-sentinel-spear.png": "ethereal_knight_with_glowing_spear.png",
+    "sentinels/pale-sentinel-ceremonial.png": "ceremonial_knight_in_ethereal_armor.png"
+  },
+  "sheetComponents": 12,
+  "sourceAdventure": "maurei-complete.md"
+}

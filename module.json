@@ -1,0 +1,48 @@
+{
+  "id": "maurei-isle-that-remembers",
+  "title": "Maurei, The Isle That Remembers",
+  "description": "A complete one-shot adventure module with scenes, journals, D&D5e actors, tokens, map pins, Mist-Events, Fading automation, and the naval Reef Clock.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Sam Jones"
+    },
+    {
+      "name": "OpenAI",
+      "flags": {}
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "3.3.0",
+          "verified": "3.3.1",
+          "maximum": "3.3.99"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/importer.js"
+  ],
+  "styles": [
+    "styles/maurei.css"
+  ],
+  "socket": false,
+  "media": [
+    {
+      "type": "cover",
+      "url": "assets/maps/maurei-overview-player.webp",
+      "thumbnail": "assets/maps/maurei-overview-player.webp",
+      "loop": false
+    }
+  ]
+}
