@@ -1,0 +1,98 @@
+name: Build and publish Foundry module
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+  # Also allows you to run it manually from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate module.json
+        shell: bash
+        run: |
+          jq empty module.json
+
+          VERSION="$(jq -r '.version' module.json)"
+          echo "Module version: ${VERSION}"
+
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            EXPECTED_TAG="v${VERSION}"
+
+            if [[ "${GITHUB_REF_NAME}" != "${EXPECTED_TAG}" ]]; then
+              echo "::error::Tag ${GITHUB_REF_NAME} does not match module.json version ${VERSION}."
+              echo "::error::Expected tag: ${EXPECTED_TAG}"
+              exit 1
+            fi
+          fi
+
+      - name: Build Foundry ZIP
+        shell: bash
+        run: |
+          MODULE_ID="$(jq -r '.id' module.json)"
+          ZIP_NAME="${MODULE_ID}.zip"
+
+          mkdir -p package
+
+          cp module.json package/
+
+          if [[ -f README.md ]]; then
+            cp README.md package/
+          fi
+
+          for path in assets data scripts styles templates lang packs; do
+            if [[ -e "${path}" ]]; then
+              cp -R "${path}" package/
+            fi
+          done
+
+          cd package
+          zip -r "../${ZIP_NAME}" .
+          cd ..
+
+          echo "Built ${ZIP_NAME}"
+          unzip -l "${ZIP_NAME}"
+
+      - name: Create or update GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          MODULE_ID="$(jq -r '.id' module.json)"
+          ZIP_NAME="${MODULE_ID}.zip"
+
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            echo "Release ${TAG} already exists; replacing assets."
+            gh release upload "${TAG}" \
+              module.json \
+              "${ZIP_NAME}" \
+              --clobber
+          else
+            gh release create "${TAG}" \
+              module.json \
+              "${ZIP_NAME}" \
+              --title "Maurei ${TAG}" \
+              --generate-notes
+          fi
+
+      - name: Upload development build
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: maurei-foundry-module
+          path: |
+            module.json
+            maurei-isle-that-remembers.zip
