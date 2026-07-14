@@ -8,8 +8,7 @@
       "name": "Sam Jones"
     },
     {
-      "name": "OpenAI",
-      "flags": {}
+      "name": "OpenAI"
     }
   ],
   "compatibility": {
@@ -39,10 +38,14 @@
   "socket": false,
   "media": [
     {
-      "type": "cover",
-      "url": "assets/maps/maurei-overview-player.webp",
-      "thumbnail": "assets/maps/maurei-overview-player.webp",
-      "loop": false
+      "type": "setup",
+      "url": "modules/maurei-isle-that-remembers/assets/maps/maurei-overview-player.webp",
+      "thumbnail": "modules/maurei-isle-that-remembers/assets/maps/maurei-overview-player.webp"
     }
-  ]
+  ],
+  "url": "https://github.com/Sam-W-Jones/maurei-isle-that-remembers",
+  "manifest": "https://github.com/Sam-W-Jones/maurei-isle-that-remembers/releases/latest/download/module.json",
+  "download": "https://github.com/Sam-W-Jones/maurei-isle-that-remembers/releases/download/v1.0.0/maurei-isle-that-remembers.zip",
+  "readme": "https://github.com/Sam-W-Jones/maurei-isle-that-remembers/blob/main/README.md",
+  "bugs": "https://github.com/Sam-W-Jones/maurei-isle-that-remembers/issues"
 }
